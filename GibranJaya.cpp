@@ -123,17 +123,54 @@ void cetakGaris() {
 
 int main() {
     vector<RekeningBank*> daftarRekening;
-
+    
     daftarRekening.push_back(new RekeningySyariah    ("Ahmad Fauzi",   "SYR-001", 5000000));
     daftarRekening.push_back(new RekeningySyariah    ("Siti Rahayu",   "SYR-002", 200000));
     daftarRekening.push_back(new RekeningKonvensional("Budi Santoso",  "KON-001", 2500000));
-    daftarRekening.push_back(new RekeningKonvensional("Dewi Lestari",  "KON-002", 10000));  
+    daftarRekening.push_back(new RekeningKonvensional("Dewi Lestari",  "KON-002", 10000)); 
     daftarRekening.push_back(new RekeningPremium     ("Hendra Wijaya", "PRM-001", 15000000)); 
     daftarRekening.push_back(new RekeningPremium     ("Rina Kusuma",   "PRM-002", 8000000));
     daftarRekening.push_back(new RekeningPremium     ("Joko widodoww",   "PRM-003", 30000));   
 
     
+    cetakGaris();
+    cout << "   BANK GIBRAN JAYA - PROSES AKHIR BULAN" << endl;
+    cetakGaris();
+    for (int i = 0; i < daftarRekening.size(); i++) {
+        cout << "\n[Rekening ke-" << (i + 1) << "]" << endl;
+        daftarRekening[i]->tampilInfo();
+        cout << "  -- Proses potongan: --" << endl;
+        daftarRekening[i]->potongAdmin();
     }
 
-    
    
+    cout << "\n";
+    cetakGaris();
+    cout << "   RINGKASAN SALDO AKHIR" << endl;
+    cetakGaris();
+
+    cout << left; 
+    cout << setw(18) << "Nama"
+         << setw(24) << "Jenis Rekening"
+         << "Saldo Akhir" << endl;
+    cout << setfill('-') << setw(55) << "" << setfill(' ') << endl;
+
+    for (int i = 0; i < daftarRekening.size(); i++) {
+        cout << fixed << setprecision(0);
+        cout << setw(18) << daftarRekening[i]->getNama()
+             << setw(24) << daftarRekening[i]->getJenis()
+             << "Rp " << daftarRekening[i]->getSaldo()
+             << endl;
+    }
+
+    cetakGaris();
+    for (int i = 0; i < daftarRekening.size(); i++) {
+        delete daftarRekening[i];
+    }
+
+    daftarRekening.clear();
+
+    cout << "\nProgram selesai! Semoga nilainya bagus :)" << endl;
+
+    return 0; 
+}
