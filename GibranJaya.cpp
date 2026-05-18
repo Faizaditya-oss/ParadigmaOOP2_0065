@@ -77,3 +77,38 @@ public:
 
 // Nilai static diluar class
 const double RekeningKonvensional::BIAYA_ADMIN = 15000.0;
+class RekeningPremium : public RekeningBank {
+
+private:
+    static const double BATAS_GRATIS;
+    static const double BIAYA_ADMIN_PREMIUM;
+
+public:
+    RekeningPremium(string nama, string noRek, double saldoAwal)
+        : RekeningBank(nama, noRek, saldoAwal) {}
+
+    void potongAdmin() override {
+        if (saldo > BATAS_GRATIS) {
+            cout << "  [BEBAS] Saldo di atas Rp " << BATAS_GRATIS;
+            cout << " jadi gratis admin!" << endl;
+            cout << "  Saldo tetap: Rp " << saldo << endl;
+
+        } else {
+            cout << "  [INFO] Saldo <= Rp " << BATAS_GRATIS;
+            cout << ", kena biaya admin Rp " << BIAYA_ADMIN_PREMIUM << endl;
+
+            if (saldo >= BIAYA_ADMIN_PREMIUM) {
+                saldo -= BIAYA_ADMIN_PREMIUM;
+                cout << "  [POTONG] Berhasil dipotong." << endl;
+            } else {
+                cout << "  [GAGAL] Saldo ga cukup buat bayar admin!" << endl;
+            }
+            cout << "  Saldo sekarang: Rp " << saldo << endl;
+        }
+    }
+
+    string getJenis() override {
+        return "Rekening Premium";
+    }
+};
+
