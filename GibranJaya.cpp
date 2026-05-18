@@ -127,10 +127,10 @@ int main() {
     daftarRekening.push_back(new RekeningySyariah    ("Ahmad Fauzi",   "SYR-001", 5000000));
     daftarRekening.push_back(new RekeningySyariah    ("Siti Rahayu",   "SYR-002", 200000));
     daftarRekening.push_back(new RekeningKonvensional("Budi Santoso",  "KON-001", 2500000));
-    daftarRekening.push_back(new RekeningKonvensional("Dewi Lestari",  "KON-002", 10000));  // saldo tipis
-    daftarRekening.push_back(new RekeningPremium     ("Hendra Wijaya", "PRM-001", 15000000)); // sultan
+    daftarRekening.push_back(new RekeningKonvensional("Dewi Lestari",  "KON-002", 10000));  
+    daftarRekening.push_back(new RekeningPremium     ("Hendra Wijaya", "PRM-001", 15000000)); 
     daftarRekening.push_back(new RekeningPremium     ("Rina Kusuma",   "PRM-002", 8000000));
-    daftarRekening.push_back(new RekeningPremium     ("Joko Susilo",   "PRM-003", 30000));   // kasian
+    daftarRekening.push_back(new RekeningPremium     ("Joko widodoww",   "PRM-003", 30000));   
 
     
     }
